@@ -1,0 +1,55 @@
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+    session:
+      cookie:
+        max-age: 2592000
+
+spring:
+  application:
+    name: yu-picture-backend
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/image-backend
+    username: root
+    password: 123456
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    timeout: 5000
+    #session配置
+  session:
+    store-type: redis
+    timeout: 2592000
+
+
+
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+knife4j:
+  enable: true
+  openapi:
+    title: "接口文档"
+    version: 1.0
+    group:
+      default:
+        api-rule: package
+        api-rule-resources:
+          - com.hp.imagebackend.controller
+cos:
+  client:
+    host: xxx
+    secretId: xxx
+    secretKey: xxx
+    region: xxx
+    bucket: xxx
